@@ -1,12 +1,12 @@
 import 'dart:math';
-
-import 'package:app_lab_flutter/component/banner.dart';
-import 'package:app_lab_flutter/component/grid_entrance.dart';
-import 'package:app_lab_flutter/component/middle_line_card.dart';
-import 'package:app_lab_flutter/component/sticky_tabbar_delegate.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import '../component/banner.dart';
+import '../component/grid_entrance.dart';
+import '../component/middle_line_card.dart';
+import '../component/sticky_tabbar_delegate.dart';
 
 class RecPage extends StatelessWidget {
   const RecPage({
@@ -15,7 +15,7 @@ class RecPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> _tabs = ['推荐', '发现'];
+    final _tabs = ['推荐', '发现'];
 
     return DefaultTabController(
       length: _tabs.length,
@@ -87,9 +87,9 @@ class RecPage extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   return Container(
-                    child: Text('$index'),
                     color: Colors.red,
                     height: 140 + Random().nextDouble() * 200,
+                    child: Text('$index'),
                   );
                 }),
           ],

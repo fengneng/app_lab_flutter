@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -6,12 +8,17 @@ class LargeCoverCard extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  final String _imageUrl =
-      "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg";
-  final String _title =
-      "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg";
-  final String _subtitle =
-      "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg";
+  // ignore: avoid_field_initializers_in_const_classes
+  final _imageUrl =
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg';
+
+  // ignore: avoid_field_initializers_in_const_classes
+  final _title =
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg';
+
+  // ignore: avoid_field_initializers_in_const_classes
+  final _subtitle =
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2736271132,1515322104&fm=26&gp=0.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +37,7 @@ class LargeCoverCard extends StatelessWidget {
               imageUrl: _imageUrl,
               fit: BoxFit.cover,
               placeholder: (context, url) => Container(
-                child: Container(
-                  color: Colors.grey[300],
-                ),
+                color: Colors.grey[300],
               ),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
@@ -84,7 +89,7 @@ class LargeCoverCard extends StatelessWidget {
                       color: Colors.grey[500],
                     ),
                     onPressed: () {
-                      print("object");
+                      log('object');
                     },
                   ),
                 )

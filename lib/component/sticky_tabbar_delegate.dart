@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
 
+  @override
   final double maxExtent;
+  @override
   final double minExtent;
   StickyTabBarDelegate({
     @required this.child,
@@ -14,7 +16,7 @@ class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return this.child;
+    return child;
   }
 
   @override

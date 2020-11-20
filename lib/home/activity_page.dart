@@ -1,14 +1,14 @@
-import 'package:app_lab_flutter/component/small_cover_card.dart';
 import 'package:flutter/material.dart';
+import '../component/small_cover_card.dart';
 
 class ActivityPage extends StatelessWidget {
   final List<SmallCoverItem> items = List.generate(20, (index) {
-    return SmallCoverItem(index.toString(), false);
+    return SmallCoverItem(index.toString(), liked: false);
   });
 
   @override
   Widget build(BuildContext context) {
-    final w = ((MediaQuery.of(context).size.width - 24) / 2);
+    final w = (MediaQuery.of(context).size.width - 24) / 2;
     final h = w / 16 * 9 + 74;
     return GridView.builder(
       padding: EdgeInsets.all(8),

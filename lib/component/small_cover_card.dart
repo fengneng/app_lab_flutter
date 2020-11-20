@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 class SmallCoverItem {
   String id;
   bool liked = false;
-  SmallCoverItem(this.id, this.liked);
+  SmallCoverItem(
+    this.id, {
+    @required this.liked,
+  });
 }
 
 class SmallCoverCard extends StatefulWidget {
@@ -16,14 +19,10 @@ class SmallCoverCard extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SmallCoverCardState createState() => _SmallCoverCardState(item);
+  _SmallCoverCardState createState() => _SmallCoverCardState();
 }
 
 class _SmallCoverCardState extends State<SmallCoverCard> {
-  final SmallCoverItem item;
-
-  _SmallCoverCardState(this.item);
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -49,6 +48,10 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                   top: 4,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    decoration: BoxDecoration(
+                      color: Color(0xfffff1ed),
+                      borderRadius: BorderRadius.circular(2.0),
+                    ),
                     child: Text(
                       '热点',
                       style: TextStyle(
@@ -56,10 +59,6 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                         fontSize: 11,
                         height: 16 / 11,
                       ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xfffff1ed),
-                      borderRadius: BorderRadius.circular(2.0),
                     ),
                   ),
                 ),
@@ -70,6 +69,16 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                   height: 30,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: const [
+                          Color(0x00000000),
+                          Color(0xff212121),
+                        ],
+                      ),
+                    ),
                     child: Row(
                       children: <Widget>[
                         Icon(
@@ -112,16 +121,6 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                         ),
                       ],
                     ),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0x0),
-                          Color(0xff212121),
-                        ],
-                      ),
-                    ),
                   ),
                 ),
               ],
@@ -129,8 +128,7 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
           ),
           Expanded(
             child: Padding(
-              padding:
-                  const EdgeInsets.only(top: 8.0, left: 8, right: 8, bottom: 0),
+              padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
               child: Text(
                 '基本上根据这些属性名字就能看出这些属性都是干啥的，这里面咱只看fit这个东西，这里有专门讲解这一块用法的一个文章image',
                 textAlign: TextAlign.left,
@@ -149,6 +147,10 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
               Container(
                 margin: EdgeInsets.only(left: 8, right: 4, bottom: 8, top: 8),
                 padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xfffb7299), width: 0.5),
+                  borderRadius: BorderRadius.circular(2.0),
+                ),
                 child: Text(
                   '热点',
                   style: TextStyle(
@@ -157,14 +159,14 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                     height: 16 / 10,
                   ),
                 ),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xfffb7299), width: 0.5),
-                  borderRadius: BorderRadius.circular(2.0),
-                ),
               ),
               Container(
                 margin: EdgeInsets.only(right: 4, bottom: 8, top: 8),
                 padding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                decoration: BoxDecoration(
+                  color: Color(0xfffff1ed),
+                  borderRadius: BorderRadius.circular(2.0),
+                ),
                 child: Text(
                   '国创',
                   style: TextStyle(
@@ -172,10 +174,6 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                     fontSize: 11,
                     height: 16 / 11,
                   ),
-                ),
-                decoration: BoxDecoration(
-                  color: Color(0xfffff1ed),
-                  borderRadius: BorderRadius.circular(2.0),
                 ),
               ),
               Expanded(
@@ -185,7 +183,9 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                     padding: EdgeInsets.zero,
                     onPressed: () {},
                     child: Text(
-                        '基本上根据这些属性名字就能看出这些属性都是干啥的，这里面咱只看fit这个东西，这里有专门讲解这一块用法的一个文章image',
+                        '基本上根据这些属性名字就能看出这些属性都是干啥的，'
+                        '这里面咱只看fit这个东西，'
+                        '这里有专门讲解这一块用法的一个文章image',
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

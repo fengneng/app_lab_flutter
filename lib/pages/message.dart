@@ -79,7 +79,7 @@ class MessagePage extends StatelessWidget {
           );
         },
         itemCount: 10,
-        separatorBuilder: (BuildContext context, int index) {
+        separatorBuilder: (context, index) {
           return Divider();
         },
       ),

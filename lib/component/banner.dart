@@ -23,7 +23,7 @@ class BannerCard extends StatelessWidget {
             activeColor: Colors.white,
           ),
         ),
-        itemBuilder: (BuildContext context, int index) {
+        itemBuilder: (context, index) {
           final urls = [
             'https://i0.hdslb.com/bfs/live/new_room_cover/45f1118be51540379e24d7962ed6cd54580aea5a.jpg',
             'https://i0.hdslb.com/bfs/archive/9d51f0e58f34380736f2568e22c651187aedabb5.jpg',
@@ -34,9 +34,7 @@ class BannerCard extends StatelessWidget {
             imageUrl: urls[index],
             fit: BoxFit.cover,
             placeholder: (context, url) => Container(
-              child: Container(
-                color: Colors.grey[300],
-              ),
+              color: Colors.grey[300],
             ),
             errorWidget: (context, url, error) => Icon(Icons.error),
           );

@@ -1,6 +1,6 @@
-import 'package:app_lab_flutter/component/large_cover_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../component/large_cover_card.dart';
 
 class HotPage extends StatelessWidget {
   const HotPage({

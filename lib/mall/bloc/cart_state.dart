@@ -5,7 +5,7 @@ abstract class CartState {
   final List<Goods> goodsList;
 
   int get totalCount {
-    if (goodsList.length == 0) {
+    if (goodsList.isEmpty) {
       return 0;
     }
     return goodsList
@@ -14,7 +14,7 @@ abstract class CartState {
   }
 
   double get totalPrice {
-    if (goodsList.length == 0) {
+    if (goodsList.isEmpty) {
       return 0;
     }
     return goodsList
@@ -22,9 +22,9 @@ abstract class CartState {
         .reduce((value, element) => value + element);
   }
 
-  CartState(this.goodsList);
+  const CartState(this.goodsList);
 }
 
 class CartLoaded extends CartState {
-  CartLoaded(List<Goods> goodsList) : super(goodsList);
+  const CartLoaded(List<Goods> goodsList) : super(goodsList);
 }

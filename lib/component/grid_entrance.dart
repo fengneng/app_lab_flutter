@@ -24,7 +24,7 @@ class GridEntrance extends StatelessWidget {
             activeColor: Colors.black,
           ),
         ),
-        itemBuilder: (BuildContext context, int index) {
+        itemBuilder: (context, index) {
           return GridView.count(
             padding: EdgeInsets.all(8),
             physics: NeverScrollableScrollPhysics(),

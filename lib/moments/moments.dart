@@ -1,8 +1,8 @@
-import 'package:app_lab_flutter/component/moment_card.dart';
-import 'package:app_lab_flutter/moments/bloc/follow_bloc.dart';
-import 'package:app_lab_flutter/moments/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../component/moment_card.dart';
+import 'bloc/follow_bloc.dart';
+import 'user.dart';
 
 class MomentsPage extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class _MomentsPage extends StatefulWidget {
 class _MomentsPageState extends State<_MomentsPage> {
   List<User> _list = [];
 
-  _loadData() {
+  void _loadData() {
     final list = [
       User(103, followed: true),
       User(103, followed: true),
@@ -33,7 +33,7 @@ class _MomentsPageState extends State<_MomentsPage> {
     ];
     final followedIds =
         _list.where((element) => element.followed).map((e) => e.id).toList();
-    context.bloc<FollowBloc>().add(ResetFollowUsers(followedIds));
+    context.read<FollowBloc>().add(ResetFollowUsers(followedIds));
     setState(() {
       _list = list;
     });
@@ -53,9 +53,7 @@ class _MomentsPageState extends State<_MomentsPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () {
-              _loadData();
-            },
+            onPressed: _loadData,
           )
         ],
       ),

@@ -1,8 +1,8 @@
-import 'package:app_lab_flutter/mall/goods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/cart_bloc.dart';
+import 'goods.dart';
 
 class MallPage extends StatelessWidget {
   @override
@@ -66,13 +66,13 @@ class _CartBottomBar extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () {
-              context.bloc<CartBloc>().add(LoadCart());
+              context.read<CartBloc>().add(LoadCart());
             },
           ),
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              context.bloc<CartBloc>().add(AddOneCart());
+              context.read<CartBloc>().add(AddOneCart());
             },
           ),
         ],
@@ -116,15 +116,15 @@ class _GoodsItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                Goods cur = Goods(goods.id, 1, goods.price);
-                context.bloc<CartBloc>()..add(AddCart(cur));
+                final cur = Goods(goods.id, 1, goods.price);
+                context.read<CartBloc>().add(AddCart(cur));
               },
             ),
             IconButton(
               icon: Icon(Icons.remove),
               onPressed: () {
-                Goods cur = Goods(goods.id, 1, goods.price);
-                context.bloc<CartBloc>()..add(RemoveCart(cur));
+                final cur = Goods(goods.id, 1, goods.price);
+                context.read<CartBloc>().add(RemoveCart(cur));
               },
             ),
           ],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:app_lab_flutter/pages/message.dart';
-import 'package:app_lab_flutter/tab_item_model.dart';
+import '../pages/message.dart';
+import '../tab_item_model.dart';
 
-import 'rec_page.dart';
-import 'hot_page.dart';
 import 'activity_page.dart';
+import 'hot_page.dart';
+import 'rec_page.dart';
 
 class HomePage extends StatelessWidget {
   final List<TabItemModel> _tabs = [

@@ -23,7 +23,7 @@ class MiddleLineCard extends StatelessWidget {
                     child: CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl:
-                          "https://i0.hdslb.com/bfs/archive/ec6226dc1e506551dc1ca7a43529d4e48b1b1cee.jpg@412w_232h_1c_100q.jpg",
+                          'https://i0.hdslb.com/bfs/archive/ec6226dc1e506551dc1ca7a43529d4e48b1b1cee.jpg@412w_232h_1c_100q.jpg',
                       placeholder: (context, url) {
                         return Container();
                       },
@@ -34,6 +34,10 @@ class MiddleLineCard extends StatelessWidget {
                     bottom: 4,
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 3, vertical: 1),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(0, 0, 0, 0.4),
+                        borderRadius: BorderRadius.circular(2.0),
+                      ),
                       child: Text(
                         '13:20',
                         style: TextStyle(
@@ -41,10 +45,6 @@ class MiddleLineCard extends StatelessWidget {
                           fontSize: 10,
                           height: 10 / 10,
                         ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(0, 0, 0, 0.4),
-                        borderRadius: BorderRadius.circular(2.0),
                       ),
                     ),
                   ),

@@ -1,11 +1,13 @@
-import 'package:app_lab_flutter/client/client.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:app_lab_flutter/mall/mall.dart';
-import 'package:app_lab_flutter/pages/me.dart';
-import 'package:app_lab_flutter/moments/moments.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
+import 'client/client.dart';
 import 'home/home_page.dart';
+import 'mall/mall.dart';
+import 'moments/moments.dart';
+import 'pages/me.dart';
 import 'tab_item_model.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        backgroundColor: Color(0xF4F4F4),
+        backgroundColor: Color(0x00f4f4f4),
         cardColor: Colors.white,
         tabBarTheme: TabBarTheme(
           indicatorSize: TabBarIndicatorSize.label,
@@ -67,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     client.fetchColumns('zhihuadmin').then((value) {
-      print(value);
+      log('$value');
     });
     super.initState();
   }

@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:app_lab_flutter/mall/goods.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+
+import '../goods.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  CartBloc() : super(CartLoaded([]));
+  CartBloc() : super(CartLoaded(const []));
 
   @override
   Stream<CartState> mapEventToState(
@@ -32,17 +33,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
     if (event is AddCart) {
       var list = state.goodsList;
-      var find = list.where((element) => event.goods.id == element.id).toList();
-      if (find.length > 0) {
-        find.forEach((element) {
+      final find =
+          list.where((element) => event.goods.id == element.id).toList();
+      if (find.isNotEmpty) {
+        for (final element in find) {
           element.count += event.goods.count;
-        });
+        }
       } else {
         list += [event.goods];
       }
       yield CartLoaded(list);
     } else if (event is RemoveCart) {
-      var list = state.goodsList;
+      final list = state.goodsList;
       list.where((element) => event.goods.id == element.id).forEach((element) {
         element.count -= event.goods.count;
       });

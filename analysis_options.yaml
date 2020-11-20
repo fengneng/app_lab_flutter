@@ -1,0 +1,19 @@
+include: package:lint/analysis_options_package.yaml
+
+analyzer:
+  errors:
+    missing_return: error
+    missing_required_param: error
+  exclude:
+    - "**/*.g.dart"
+    - "test/**"
+
+linter:
+  rules:
+    public_member_api_docs: false
+    prefer_const_constructors: false
+    unnecessary_const: true
+    use_key_in_widget_constructors: false
+    sort_child_properties_last: true
+    lines_longer_than_80_chars: false
+    avoid_types_on_closure_parameters: false

@@ -11,5 +11,8 @@ class FollowChanged extends FollowState {
   final int id;
   final bool followed;
 
-  FollowChanged(this.id, this.followed);
+  FollowChanged(
+    this.id, {
+    @required this.followed,
+  });
 }

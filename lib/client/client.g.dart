@@ -17,7 +17,7 @@ class _RestClient implements RestClient {
   String baseUrl;
 
   @override
-  Future<ColumnsResponse> fetchColumns(name) async {
+  Future<ColumnsResponse> fetchColumns(String name) async {
     ArgumentError.checkNotNull(name, 'name');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

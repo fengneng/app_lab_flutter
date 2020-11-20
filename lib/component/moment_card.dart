@@ -1,10 +1,11 @@
 import 'dart:developer';
 
-import 'package:app_lab_flutter/moments/bloc/follow_bloc.dart';
-import 'package:app_lab_flutter/moments/user.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../moments/bloc/follow_bloc.dart';
+import '../moments/user.dart';
 
 class MomentCard extends StatelessWidget {
   final User user;
@@ -24,9 +25,9 @@ class MomentCard extends StatelessWidget {
           Row(
             children: <Widget>[
               SizedBox(
-                child: CircleAvatar(),
                 width: 40,
                 height: 40,
+                child: CircleAvatar(),
               ),
               SizedBox(
                 width: 6,
@@ -64,7 +65,7 @@ class MomentCard extends StatelessWidget {
                 builder: (context, state) {
                   bool isFollowed;
                   if (state is FollowChanged) {
-                    final ids = context.bloc<FollowBloc>().followIds;
+                    final ids = context.read<FollowBloc>().followIds;
                     isFollowed = ids.contains(user.id);
                   } else {
                     isFollowed = user.followed;
@@ -76,7 +77,7 @@ class MomentCard extends StatelessWidget {
                       color: Color(0xfffb7299),
                     ),
                     onPressed: () {
-                      context.bloc<FollowBloc>().add(isFollowed
+                      context.read<FollowBloc>().add(isFollowed
                           ? UnFollowUser(user.id)
                           : FollowUser(user.id));
                       user.followed = !isFollowed;
@@ -113,9 +114,7 @@ class MomentCard extends StatelessWidget {
                   'https://i1.hdslb.com/bfs/archive/2e3716d82cef0ca13dac4ff7517f681701faff06.png@640w_400h.png',
               fit: BoxFit.cover,
               placeholder: (context, url) => Container(
-                child: Container(
-                  color: Colors.grey[300],
-                ),
+                color: Colors.grey[300],
               ),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),

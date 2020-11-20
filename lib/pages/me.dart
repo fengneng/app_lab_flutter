@@ -7,9 +7,7 @@ class MePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('我的'),
       ),
-      body: CustomScrollView(
-        slivers: <Widget>[],
-      ),
+      body: CustomScrollView(),
     );
   }
 }
