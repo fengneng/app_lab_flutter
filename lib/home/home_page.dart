@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../pages/douyin_page.dart';
 import '../pages/message.dart';
+import '../pages/music_player_page.dart';
 import '../tab_item_model.dart';
 
 import 'activity_page.dart';
@@ -70,6 +72,38 @@ class HomeAppBar extends StatelessWidget {
         ),
       ),
       actions: <Widget>[
+        IconButton(
+          icon: Icon(
+            Icons.live_tv,
+            color: Color(0xFF757575),
+            size: 28,
+          ),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return DouyinPage();
+                },
+              ),
+            );
+          },
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.music_video,
+            color: Color(0xFF757575),
+            size: 28,
+          ),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return MusicPlayerPage();
+                },
+              ),
+            );
+          },
+        ),
         IconButton(
           icon: Icon(
             Icons.mail_outline,

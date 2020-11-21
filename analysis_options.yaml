@@ -21,3 +21,4 @@ linter:
     sort_pub_dependencies: true
     sort_unnamed_constructors_first: true
     prefer_relative_imports: true
+    prefer_const_literals_to_create_immutables: false
