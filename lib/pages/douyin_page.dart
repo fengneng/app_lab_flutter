@@ -174,7 +174,7 @@ class DouyinPage extends StatelessWidget {
                           radius: 22,
                         ),
                         _buildButton(Icons.favorite_border, '35.3w'),
-                        _buildButton(Icons.comment, '4445'),
+                        _buildButton(Icons.textsms, '4445'),
                         _buildButton(Icons.share, '5.0w'),
                         RotationWidget(),
                       ],
@@ -200,11 +200,11 @@ class DouyinPage extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.account_circle,
+              Icons.alternate_email,
               color: Colors.grey,
             ),
             Icon(
-              Icons.account_circle,
+              Icons.sentiment_satisfied,
               color: Colors.grey,
             ),
           ],
@@ -227,7 +227,7 @@ class _RotationWidgetState extends State<RotationWidget>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 6),
+      duration: Duration(seconds: 20),
       vsync: this,
     );
     _controller.addStatusListener((status) {
@@ -250,12 +250,24 @@ class _RotationWidgetState extends State<RotationWidget>
     return RotationTransition(
       alignment: Alignment.center,
       turns: _controller,
-      child: CircleAvatar(
-        radius: 25,
-        child: Text(
-          '天才',
-          style: TextStyle(
-            color: Colors.white,
+      child: Material(
+        elevation: 10,
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(500),
+        clipBehavior: Clip.antiAlias,
+        child: Container(
+          foregroundDecoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/playing_page_disc.png"),
+            ),
+          ),
+          padding: EdgeInsets.all(5),
+          child: ClipOval(
+            child: Image.network(
+              'http://p2.music.126.net/NKcfKJKBFIeKwm_w06jj3A==/109951163517935030.jpg?param=130y130',
+              width: 50,
+              height: 50,
+            ),
           ),
         ),
       ),

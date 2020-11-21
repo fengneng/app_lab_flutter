@@ -65,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     TabItemModel(
       page: MomentsPage(),
-      iconData: OMIcons.palette,
+      iconData: OMIcons.camera,
       title: '动态',
     ),
     TabItemModel(
       page: MallPage(),
-      iconData: Icons.card_travel,
+      iconData: OMIcons.localMall,
       title: '购物车',
     ),
     TabItemModel(

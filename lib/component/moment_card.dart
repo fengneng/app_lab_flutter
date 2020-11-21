@@ -111,13 +111,13 @@ class MomentCard extends StatelessWidget {
               ),
               Spacer(),
               FlatButton.icon(
-                icon: Icon(Icons.insert_comment),
+                icon: Icon(Icons.textsms),
                 label: Text('评论'),
                 onPressed: () {},
               ),
               Spacer(),
               FlatButton.icon(
-                icon: Icon(Icons.favorite_border),
+                icon: Icon(Icons.thumb_up),
                 label: Text('点赞'),
                 onPressed: () {},
               ),

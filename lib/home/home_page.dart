@@ -74,8 +74,8 @@ class HomeAppBar extends StatelessWidget {
       actions: <Widget>[
         IconButton(
           icon: Icon(
-            Icons.live_tv,
-            color: Color(0xFF757575),
+            Icons.ondemand_video,
+            color: Color(0xFFFB7299),
             size: 28,
           ),
           onPressed: () {
@@ -90,8 +90,8 @@ class HomeAppBar extends StatelessWidget {
         ),
         IconButton(
           icon: Icon(
-            Icons.music_video,
-            color: Color(0xFF757575),
+            Icons.headset,
+            color: Color(0xFFFB7299),
             size: 28,
           ),
           onPressed: () {
@@ -107,7 +107,7 @@ class HomeAppBar extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.mail_outline,
-            color: Color(0xFF757575),
+            color: Color(0xFFFB7299),
             size: 28,
           ),
           onPressed: () {

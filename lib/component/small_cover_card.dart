@@ -82,7 +82,7 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                     child: Row(
                       children: <Widget>[
                         Icon(
-                          Icons.play_arrow,
+                          Icons.live_tv,
                           size: 16,
                           color: Colors.white,
                         ),
@@ -97,7 +97,7 @@ class _SmallCoverCardState extends State<SmallCoverCard> {
                         ),
                         SizedBox(width: 12),
                         Icon(
-                          Icons.playlist_add,
+                          Icons.format_list_bulleted,
                           size: 16,
                           color: Colors.white,
                         ),
