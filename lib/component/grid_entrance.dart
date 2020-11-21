@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:app_lab_flutter/component/icon_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -33,18 +34,11 @@ class GridEntrance extends StatelessWidget {
             mainAxisSpacing: 8,
             childAspectRatio: 1,
             children: List.generate(8, (index) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    Icons.home,
-                    color: Colors
-                        .primaries[Random().nextInt(Colors.primaries.length)],
-                    size: 44,
-                  ),
-                  SizedBox(height: 4),
-                  Text('热销$index'),
-                ],
+              return IconTextButton(
+                text: '热销$index',
+                iconColor: Colors.primaries[Random().nextInt(
+                  Colors.primaries.length,
+                )],
               );
             }),
           );
