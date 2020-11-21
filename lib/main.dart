@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
 import 'client/client.dart';
@@ -10,7 +11,22 @@ import 'moments/moments.dart';
 import 'pages/me.dart';
 import 'tab_item_model.dart';
 
+class SimpleBlocObserver extends BlocObserver {
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    log('$transition');
+    super.onTransition(bloc, transition);
+  }
+
+  @override
+  void onError(Cubit cubit, Object error, StackTrace stackTrace) {
+    log('$error');
+    super.onError(cubit, error, stackTrace);
+  }
+}
+
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   runApp(MyApp());
 }
 

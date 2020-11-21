@@ -17,3 +17,7 @@ linter:
     sort_child_properties_last: true
     lines_longer_than_80_chars: false
     avoid_types_on_closure_parameters: false
+
+    sort_pub_dependencies: true
+    sort_unnamed_constructors_first: true
+    prefer_relative_imports: true

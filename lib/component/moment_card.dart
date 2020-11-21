@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../moments/bloc/follow_bloc.dart';
 import '../moments/user.dart';
+import 'follow_button.dart';
 
 class MomentCard extends StatelessWidget {
   final User user;
@@ -58,36 +55,7 @@ class MomentCard extends StatelessWidget {
                   ],
                 ),
               ),
-              BlocBuilder<FollowBloc, FollowState>(
-                buildWhen: (previous, current) {
-                  return current is FollowChanged && current.id == user.id;
-                },
-                builder: (context, state) {
-                  bool isFollowed;
-                  if (state is FollowChanged) {
-                    final ids = context.read<FollowBloc>().followIds;
-                    isFollowed = ids.contains(user.id);
-                  } else {
-                    isFollowed = user.followed;
-                  }
-                  log('$state ${user.id} : $isFollowed');
-                  return OutlineButton.icon(
-                    textColor: Color(0xfffb7299),
-                    borderSide: BorderSide(
-                      color: Color(0xfffb7299),
-                    ),
-                    onPressed: () {
-                      context.read<FollowBloc>().add(isFollowed
-                          ? UnFollowUser(user.id)
-                          : FollowUser(user.id));
-                      user.followed = !isFollowed;
-                    },
-                    padding: EdgeInsets.zero,
-                    icon: Icon(isFollowed ? Icons.rotate_right : Icons.add),
-                    label: Text(isFollowed ? '已关注' : '关注'),
-                  );
-                },
-              ),
+              FollowButton(user: user),
             ],
           ),
           SizedBox(
