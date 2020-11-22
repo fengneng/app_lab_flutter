@@ -1,8 +1,9 @@
 import 'dart:math';
 
-import 'package:app_lab_flutter/component/icon_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+
+import 'icon_text_button.dart';
 
 class GridEntrance extends StatelessWidget {
   const GridEntrance({

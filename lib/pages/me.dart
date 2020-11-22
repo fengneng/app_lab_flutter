@@ -1,11 +1,16 @@
-import 'dart:math';
-
+import 'package:app_lab_flutter/file_folder/node_container.dart';
+import 'package:app_lab_flutter/file_folder/node_tree.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../component/icon_text_button.dart';
+class MePage extends StatefulWidget {
+  final _node = NodeTree.getInstance().root;
 
-class MePage extends StatelessWidget {
+  @override
+  _MePageState createState() => _MePageState();
+}
+
+class _MePageState extends State<MePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,22 +28,17 @@ class MePage extends StatelessWidget {
               ),
             ),
           ),
-          SliverGrid.count(
-            crossAxisCount: 4,
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-            childAspectRatio: 1,
-            children: List.generate(28, (index) {
-              return IconTextButton(
-                text: '$index 活动',
-                iconColor: Colors.primaries[Random().nextInt(
-                  Colors.primaries.length,
-                )],
-                iconData: Icons.folder,
-              );
-            }),
-          ),
+          CupertinoSliverRefreshControl(onRefresh: () {
+            return widget._node.fetchChildren();
+          }),
+          NodeContainer(node: widget._node),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          widget._node.addChildFolder();
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
